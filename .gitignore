@@ -1,0 +1,17 @@
+# Basic ones
+/coverage
+/docs
+/node_modules
+/.env
+
+# Please..
+.DS_Store
+npm-debug.log
+yarn-error.log
+
+# We're a library, so please, also no lock files
+/package-lock.json
+/yarn.lock
+
+# Library specific ones
+/schema-parser.js

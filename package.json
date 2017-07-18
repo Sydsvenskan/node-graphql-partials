@@ -1,0 +1,48 @@
+{
+  "name": "@hdsydsvenskan/graphql-partials",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Experimental transformer implementing support for partials in GraphQL Schemas",
+  "author": "Pelle Wessman <pelle.wessman@kodfabrik.se> (http://kodfabrik.se/)",
+  "homepage": "https://github.com/sydsvenskan/node-graphql-partials",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sydsvenskan/node-graphql-partials"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "index.js",
+  "bin": {
+    "graphql-partials": "cli.js"
+  },
+  "scripts": {
+    "mocha": "NODE_ENV=test istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
+    "dependency-check": "JS_FILES=\"*.js test/*/*.js\" && dependency-check . $JS_FILES && dependency-check . $JS_FILES --unused --no-dev",
+    "test": "npm run --silent build && installed-check -e && eslint --ext .js --ext .jsx . && npm run --silent dependency-check && npm run --silent mocha",
+    "build": "pegjs schema-parser.pegjs > schema-parser.js",
+    "watch": "nodemon -w schema-parser.pegjs -x \"npm run --silent build\"",
+    "prepush": "npm test",
+    "prepublish": "npm run --silent build"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "dependency-check": "^2.9.1",
+    "eslint": "^4.2.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "installed-check": "^2.1.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "pegjs": "^0.10.0"
+  },
+  "dependencies": {
+    "dashdash": "^1.14.1"
+  }
+}
