@@ -64,5 +64,33 @@ describe('renderSchemaWithPartials', function () {
         renderSchemaWithPartials(`interface Document using ContentField {}`);
       }, /Missing "ContentField" partial/);
     });
+
+    it('should support partials on partials', () => {
+      renderSchemaWithPartials(
+        'partial FooFields {\n' +
+        '  foo: String\n' +
+        '}\n' +
+        'partial BarFields using FooFields {\n' +
+        '  bar: String\n' +
+        '}\n' +
+        'type Document using BarFields {}\n'
+      ).should.equal(
+        'type Document {\n' +
+        '  foo: String\n' +
+        '\n' +
+        '  bar: String\n' +
+        '}\n'
+      );
+    });
+
+    it('should throw on circular partials', () => {
+      should.Throw(() => {
+        renderSchemaWithPartials(`
+          partial FooFields using BarFields { foo: String }
+          partial BarFields using FooFields { bar: String }
+          type Document using BarFields {}
+        `);
+      }, /Circular "BarFields" partial on "FooFields" partial/);
+    });
   });
 });
