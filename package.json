@@ -17,6 +17,7 @@
     "graphql-partials": "cli.js"
   },
   "scripts": {
+    "update-examples": "./cli.js example/with-partials.graphql > example/without-partials.graphql",
     "mocha": "NODE_ENV=test istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
     "dependency-check": "JS_FILES=\"*.js test/*/*.js\" && dependency-check . $JS_FILES && dependency-check . $JS_FILES --unused --no-dev",
     "test": "npm run --silent build && installed-check -e && eslint --ext .js --ext .jsx . && npm run --silent dependency-check && npm run --silent mocha",

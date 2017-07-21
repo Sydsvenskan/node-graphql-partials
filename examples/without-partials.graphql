@@ -1,0 +1,147 @@
+# WARNING: THIS OUTPUT HAS BEEN AUTOMATICALLY GENERATED
+schema {
+  query: Query
+}
+
+type Query {
+  # Fetch an individual document
+  document(
+    # The UUID of the document
+    uuid: ID
+    # The URL path that the document is exposed to on the public site
+    path: String
+  ): Document
+}
+
+interface Document {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+
+  # The document type, such as x-im/article
+  type: String
+  # If specified, then a list of the products to which this document's availability is limited
+  products: [String]
+  # The human readable name of the document, often used publicly to identify the document
+  title: String
+
+  # The specific path on the web page where this document is publicly available
+  path: String
+
+  # A single metadata block
+  metaBlock(
+    # The specific metadata block type to get
+    type: String
+  ): MetadataBlock
+}
+
+type AuthorDocument implements Document {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+
+  # The document type, such as x-im/article
+  type: String
+  # If specified, then a list of the products to which this document's availability is limited
+  products: [String]
+  # The human readable name of the document, often used publicly to identify the document
+  title: String
+
+  # The specific path on the web page where this document is publicly available
+  path: String
+
+  # A single metadata block
+  metaBlock(
+    # The specific metadata block type to get
+    type: String
+  ): MetadataBlock
+}
+
+type SubjectDocument implements Document {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+
+  # The document type, such as x-im/article
+  type: String
+  # If specified, then a list of the products to which this document's availability is limited
+  products: [String]
+  # The human readable name of the document, often used publicly to identify the document
+  title: String
+
+  # The specific path on the web page where this document is publicly available
+  path: String
+
+  # A single metadata block
+  metaBlock(
+    # The specific metadata block type to get
+    type: String
+  ): MetadataBlock
+}
+
+type ArticleDocument implements Document {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+
+  # The document type, such as x-im/article
+  type: String
+  # If specified, then a list of the products to which this document's availability is limited
+  products: [String]
+  # The human readable name of the document, often used publicly to identify the document
+  title: String
+
+  # The specific path on the web page where this document is publicly available
+  path: String
+
+  # A single metadata block
+  metaBlock(
+    # The specific metadata block type to get
+    type: String
+  ): MetadataBlock
+}
+
+interface Block {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+  document: Document
+}
+
+type MetadataBlock implements Block {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+  document: Document
+}
+
+type Link implements Block {
+  links(
+    rel: String
+    type: String
+  ): [Link]
+
+  uuid: ID!
+  document: Document
+
+  rel: String
+}
+
