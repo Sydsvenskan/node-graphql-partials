@@ -2,7 +2,7 @@
 
 Experimental transformer implementing support for partials in GraphQL Schemas.
 
-This module sole purpose is as an experimental implementation of the concepts brought up in [graphql/graphql-js#703](https://github.com/graphql/graphql-js/issues/703#issuecomment-315776310). It's not intended as a long term solution by itself, but just to experiment with a possible future extension of the GraphQL Schema itself.
+This module's sole purpose is as an experimental implementation of the concepts brought up in [graphql/graphql-js#703](https://github.com/graphql/graphql-js/issues/703#issuecomment-315776310). It's not intended as a long term solution by itself, but as an experiment with a possible future extension of the GraphQL Schema itself.
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/Flet/semistandard)
 
