@@ -12,26 +12,26 @@ TypeContent
   = [^}]* { return text(); }
 
 Extension
-  = _ type:String _ names:CommaSeparatedString {
+  = _ type:String _ names:AmpersandSeparatedString {
     return { type, names };
   }
 
 Implements
-  = _ "implements" _ interfaces:CommaSeparatedString { return interfaces; }
+  = _ "implements" _ interfaces:AmpersandSeparatedString { return interfaces; }
 
 Uses
-  = _ "using" _ traits:CommaSeparatedString { return traits; }
+  = _ "using" _ traits:AmpersandSeparatedString { return traits; }
 
 Comment
   = _? "#" comment:EverythingButNewline sp* nl { return comment.trim(); }
 
-CommaSeparatedString
-  = head:String tail:(CommaPrefixedString)* {
+AmpersandSeparatedString
+  = head:String tail:(AmpersandPrefixedString)* {
     return [head].concat(tail);
   }
 
-CommaPrefixedString
-  = _? "," _? value:String { return value; }
+AmpersandPrefixedString
+  = _? "&" _? value:String { return value; }
 
 SpacePrefixedString
   = _ value:String { return value; }
