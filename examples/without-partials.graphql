@@ -4,11 +4,11 @@ schema {
 }
 
 type Query {
-  # Fetch an individual document
+  "Fetch an individual document"
   document(
-    # The UUID of the document
+    "The UUID of the document"
     uuid: ID
-    # The URL path that the document is exposed to on the public site
+    "The URL path that the document is exposed to on the public site"
     path: String
   ): Document
 }
@@ -21,19 +21,19 @@ interface Document {
 
   uuid: ID!
 
-  # The document type, such as x-im/article
+  "The document type, such as x-im/article"
   type: String
-  # If specified, then a list of the products to which this document's availability is limited
+  "If specified, then a list of the products to which this document's availability is limited"
   products: [String]
-  # The human readable name of the document, often used publicly to identify the document
+  "The human readable name of the document, often used publicly to identify the document"
   title: String
 
-  # The specific path on the web page where this document is publicly available
+  "The specific path on the web page where this document is publicly available"
   path: String
 
-  # A single metadata block
+  "A single metadata block"
   metaBlock(
-    # The specific metadata block type to get
+    "The specific metadata block type to get"
     type: String
   ): MetadataBlock
 }
@@ -46,19 +46,19 @@ type AuthorDocument implements Document {
 
   uuid: ID!
 
-  # The document type, such as x-im/article
+  "The document type, such as x-im/article"
   type: String
-  # If specified, then a list of the products to which this document's availability is limited
+  "If specified, then a list of the products to which this document's availability is limited"
   products: [String]
-  # The human readable name of the document, often used publicly to identify the document
+  "The human readable name of the document, often used publicly to identify the document"
   title: String
 
-  # The specific path on the web page where this document is publicly available
+  "The specific path on the web page where this document is publicly available"
   path: String
 
-  # A single metadata block
+  "A single metadata block"
   metaBlock(
-    # The specific metadata block type to get
+    "The specific metadata block type to get"
     type: String
   ): MetadataBlock
 }
@@ -71,19 +71,19 @@ type SubjectDocument implements Document {
 
   uuid: ID!
 
-  # The document type, such as x-im/article
+  "The document type, such as x-im/article"
   type: String
-  # If specified, then a list of the products to which this document's availability is limited
+  "If specified, then a list of the products to which this document's availability is limited"
   products: [String]
-  # The human readable name of the document, often used publicly to identify the document
+  "The human readable name of the document, often used publicly to identify the document"
   title: String
 
-  # The specific path on the web page where this document is publicly available
+  "The specific path on the web page where this document is publicly available"
   path: String
 
-  # A single metadata block
+  "A single metadata block"
   metaBlock(
-    # The specific metadata block type to get
+    "The specific metadata block type to get"
     type: String
   ): MetadataBlock
 }
@@ -96,19 +96,19 @@ type ArticleDocument implements Document {
 
   uuid: ID!
 
-  # The document type, such as x-im/article
+  "The document type, such as x-im/article"
   type: String
-  # If specified, then a list of the products to which this document's availability is limited
+  "If specified, then a list of the products to which this document's availability is limited"
   products: [String]
-  # The human readable name of the document, often used publicly to identify the document
+  "The human readable name of the document, often used publicly to identify the document"
   title: String
 
-  # The specific path on the web page where this document is publicly available
+  "The specific path on the web page where this document is publicly available"
   path: String
 
-  # A single metadata block
+  "A single metadata block"
   metaBlock(
-    # The specific metadata block type to get
+    "The specific metadata block type to get"
     type: String
   ): MetadataBlock
 }
