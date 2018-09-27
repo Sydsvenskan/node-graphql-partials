@@ -25,7 +25,7 @@ interface ContentInterface using ContentFields {
 # Wow 😧 Is this real?
 # 🚀 Very much so!
 
-interface Document implements ContentInterface using FooFields, ContentFields {
+interface Document implements ContentInterface using FooFields & ContentFields {
   uuid: ID!
 }
 `;

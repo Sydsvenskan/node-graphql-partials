@@ -86,7 +86,7 @@ const renderSchemaWithPartials = function (schema) {
       const extensions = getExtensions(item);
       delete extensions.using;
       const extensionList = Object.keys(extensions)
-        .map(extension => ' ' + extension + ' ' + extensions[extension].join(', '));
+        .map(extension => ' ' + extension + ' ' + extensions[extension].join(' & '));
 
       const name = item.name ? ' ' + item.name : '';
 
