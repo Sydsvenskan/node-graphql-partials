@@ -133,6 +133,7 @@ type MetadataBlock implements Block {
   document: Document
 }
 
+"A reference to another document"
 type Link implements Block {
   links(
     rel: String

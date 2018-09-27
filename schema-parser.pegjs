@@ -24,7 +24,7 @@ Uses
   = _ "using" _ traits:CommaSeparatedString { return traits; }
 
 SingleLineDescription
-  = _? '"' description:EverythingButNewline '"' sp* nl {
+  = _? '"' description:SingleLineString '"' sp* nl {
     return { type: 'description', content: description };
   }
 
@@ -46,6 +46,9 @@ SpacePrefixedString
 
 EverythingButNewline
   = (sp* [^\r\n])+ { return text().trim(); }
+
+SingleLineString
+  = (sp* [^\r\n\"])+ { return text(); }
 
 String "string"
   = [a-zA-Z0-9]+ { return text(); }

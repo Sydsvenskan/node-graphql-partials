@@ -54,7 +54,7 @@ interface Block using BlockFields {}
 
 type MetadataBlock implements Block using BlockFields {}
 
+"A reference to another document"
 type Link implements Block using BlockFields {
   rel: String
 }
-
