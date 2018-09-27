@@ -1,6 +1,6 @@
 {
   "name": "@hdsydsvenskan/graphql-partials",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "Experimental transformer implementing support for partials in GraphQL Schemas",
   "author": "Pelle Wessman <pelle.wessman@kodfabrik.se> (http://kodfabrik.se/)",
