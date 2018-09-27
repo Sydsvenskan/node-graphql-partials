@@ -50,14 +50,14 @@ const renderSchemaWithPartials = function (schema) {
   const parsedSchema = schemaParser.parse(schema);
 
   const partials = parsedSchema
-    .filter(item => typeof item === 'object' && item.type === 'partial' && item.name)
+    .filter(item => item.type === 'partial' && item.name)
     .reduce((map, item) => {
       map[item.name] = item;
       return map;
     }, {});
 
   parsedSchema.forEach(item => {
-    if (typeof item === 'string') { return; }
+    if (item.type === 'comment' || item.type === 'description') { return; }
 
     const extensions = getExtensions(item);
 
@@ -74,11 +74,14 @@ const renderSchemaWithPartials = function (schema) {
 
   return parsedSchema
     .map(item => {
-      if (typeof item === 'string') {
-        return '# ' + item;
+      switch (item.type) {
+        case 'partial':
+          return;
+        case 'description':
+          return `"${item.content}"`;
+        case 'comment':
+          return `# ${item.content}`;
       }
-
-      if (item.type === 'partial') { return; }
 
       const extensions = getExtensions(item);
       delete extensions.using;
