@@ -2,7 +2,7 @@
 
 Experimental transformer implementing support for partials in GraphQL Schemas.
 
-**OUT OF DATE:** As of [graphql/graphql-spec#373](https://github.com/graphql/graphql-spec/pull/373)
+**Februari 2020:** Soon, as of [graphql/graphql-spec#373](https://github.com/graphql/graphql-spec/pull/373), GraphQL will support interfaces extending interfaces, but not yet anything like partials here.  There are a new related issue though: [graphql/graphql-spec#533](https://github.com/graphql/graphql-spec/pull/533)
 
 This module's sole purpose is as an experimental implementation of the concepts brought up in [graphql/graphql-js#703](https://github.com/graphql/graphql-js/issues/703#issuecomment-315776310). It's not intended as a long term solution by itself, but as an experiment with a possible future extension of the GraphQL Schema itself.
 
